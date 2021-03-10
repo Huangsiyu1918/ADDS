@@ -2,7 +2,7 @@
 
 char HumanPlayer::makeMove()
 {
-    //cout << "Enter move: " << endl;
+    cout << "Enter move: ";
     char ch;
     cin >> ch;
     return ch;
