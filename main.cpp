@@ -22,7 +22,7 @@ void gameControl()
         outcome.push_back(ch);
     }
     
-    for (int i = 0; i < outcome.size(); i++)
+    for (int i = 0; i < (int)outcome.size(); i++)
     {
         cout << outcome[i] << " ";
     }
