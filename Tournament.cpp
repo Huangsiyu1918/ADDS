@@ -25,7 +25,7 @@ Player* Tournament::run(std::array<Player *, 8> competitors)
     // n = n/2;
      std::vector<Player*> res2;
     // cout << "T2: " << endl;
-    for (int i = 0; i < res1.size(); i+=2)
+    for (int i = 0; i < (int)res1.size(); i+=2)
     {
         Player* temp;
         temp = ref.refGame(res1[i], res1[i+1]);
