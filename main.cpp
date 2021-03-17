@@ -1,31 +1,39 @@
 #include <iostream>
-#include "Referee.h"
-#include "Human.h"
-#include "Computer.h"
+#include "Tournament.h"
+using namespace std;
 
-void gameControl()
+int main()
 {
-    HumanPlayer player1;
-    ComputerPlayer player2;
-    Referee Ref;
+    Player* F = new FistfullODollars();
+    Player* R = new RandomComputer();
+    Player* A = new Avalanche();
+    Player* B = new Bureaucrat();
+    Player* T = new Toolbox();
+    Player* C = new Crescendo();
+    Player* P = new PaperDoll();
+    Player* F2 = new FistfullODollars();
 
-    int n;
-    cout << " how many rounds would you like to play ?" << endl;
-    cin >> n;
+    F->id = 1;
+    R->id = 2; //s //f
+    A->id = 3;
+    B->id = 4; //s
+    T->id = 5; //s //f
+    C->id = 6;
+    P->id = 7; //s
+    F2->id = 8;
 
-    vector<char> outcome;
+    std::array<Player*,8> arr;
 
-    for (int i = 0; i < n; i++)
-    {
-        char ch;
-        ch = Ref.refGame(player1, player2);
-        outcome.push_back(ch);
-    }
-    
-    for (int i = 0; i < (int)outcome.size(); i++)
-    {
-        cout << outcome[i] << " ";
-    }
-    cout << endl;
-    
+    arr[0] = F;
+    arr[1] = R;
+    arr[2] = A;
+    arr[3] = B;
+    arr[4] = T;
+    arr[5] = C;
+    arr[6] = P;
+    arr[7] = F2;
+
+    Tournament* t = new Tournament();
+    cout << t->run(arr)->id << endl;
+
 }

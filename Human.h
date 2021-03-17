@@ -1,16 +1,10 @@
 #ifndef HUMAN_H
 #define HUMAN_H
 
-#include <string>
-#include <vector>
-#include <iostream>
+#include "Player.h"
 
-using namespace std;
-
-class HumanPlayer
+class HumanPlayer : Player
 {
-private:
-    vector<char> move;
 
 public:
     char makeMove();

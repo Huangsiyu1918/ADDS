@@ -1,63 +1,34 @@
 #include "Referee.h"
-#include "Human.h"
-#include "Computer.h"
-
-char Referee::refGame(HumanPlayer player1, ComputerPlayer player2)
+using namespace std;
+Player* Referee::refGame(Player* player1, Player* player2)
 {
-    /*for (int i = 0; i < p.size(); i++)
+    int p1 = 0; 
+    int p2 = 0;
+    for(int i = 0; i < 5; i++)
     {
-        if (p[i] == c[i])
+       char ch1 = player1->makeMove();
+       char ch2 = player2->makeMove();   
+        if (ch1 == ch2)
         {
-            cout << 'T';
+            p1++; p2++;
         }
-        else if (p[i] == 'P' && c[i] != 'S')
+        else if ((ch1 == 'S' && ch2 == 'P') || 
+                (ch1 == 'R' && ch2 == 'S') || 
+                (ch1 == 'P' && ch2 == 'R'))
         {
-            cout << 'W';
-        }
-        else if (p[i] == 'R' && c[i] != 'P')
-        {
-            cout << 'W';
-        }
-        else if (p[i] == 'S' && c[i] != 'R')
-        {
-            cout << 'W';
+            p1++;
         }
         else
         {
-            cout << 'L';
+            p2++;
         }
+    //   cout << "1: " << ch1 << " : " << p1 << " 2: " << ch2 << " : " << p2 <<endl;;
+    }
 
-        if (i < p.size() - 1)
-        {
-            cout << " ";
-        }
-        else
-        {
-            cout << endl;
-        }
-    }
-    */
-    char ch1 = player1.makeMove();
-    char ch2 = player2.makeMove();
-
-    if (ch1 == ch2)
+// cout << endl;
+    if (p2 <= p1)
     {
-        return 'T';
+        return player1;
     }
-    else if (ch1 == 'P' && ch2 != 'S')
-    {
-        return 'W';
-    }
-    else if (ch1 == 'S' && ch2 != 'R')
-    {
-        return 'W';
-    }
-    else if (ch1 == 'R' && ch2 != 'P')
-    {
-        return 'W';
-    }
-    else
-    {
-        return 'L';
-    }
+    return player2;
 }

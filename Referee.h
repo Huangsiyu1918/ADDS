@@ -1,20 +1,18 @@
 #ifndef REFEREE_H
 #define REFEREE_H
 
-#include <string>
-#include <vector>
-#include <iostream>
-#include "Human.h"
-#include "Computer.h"
-
-using namespace std;
+#include "Player.h"
+#include "Avalanche.h"
+#include "Bureaucrat.h"
+#include "Crescendo.h"
+#include "FistfullODollars.h"
+#include "PaperDoll.h"
+#include "RandomComputer.h"
+#include "Toolbox.h"
 
 class Referee
 {
-private:
-    string decision;
-
-public:
-    char refGame(HumanPlayer player1, ComputerPlayer player2);
+    public:
+    Player* refGame(Player* player1, Player* player2);
 };
 #endif
