@@ -31,7 +31,7 @@ std::vector<int> FilterGeneric::filter(std::vector<int> a)
 
     if(a.size() > 0)
     {
-        if(!g(a[0]))
+        if(g(a[0]))
         {
             v.push_back(a[0]);
         }

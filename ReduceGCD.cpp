@@ -1,6 +1,5 @@
 #include "ReduceGCD.h"
-#include <set>
-
+#include <iostream>
 int ReduceGCD::binaryOperator(int a, int b)
 {
     if (a == 0)

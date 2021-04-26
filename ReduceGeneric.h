@@ -9,7 +9,5 @@ class ReduceGeneric
 
     public:
     int reduce(std::vector<int>);
-    int Min;
-    int Res;
 };
 #endif

@@ -13,6 +13,12 @@
 #include <iostream>
 
 using namespace std;
+
+void print(vector<int> vec){
+    for(int i = 0; i < vec.size(); i++) cout << vec[i] << " ";
+    cout << endl;
+}
+
 int main()
 {
     string s; 
@@ -32,21 +38,13 @@ int main()
         else temps+=s[i];
     }
 
-    // for (int i = 0; i < L.size(); i++)
-    // {
-    //     cout << L[i];
-    // }
+    // L.push_back(-33);
+    // L.push_back(-12);
+    // L.push_back(7);
+    // L.push_back(31);
+    // L.push_back(224);
+    // L.push_back(2);
     
-
-
-    // v.push_back(12);
-    // v.push_back(18);
-    // v.push_back(3);
-    // v.push_back(4);
-    // v.push_back(5);
-    // v.push_back(0);
-    
-
      MapGeneric* M1 = new(MapAbsoluteValue);
      L = M1->map(L);
 

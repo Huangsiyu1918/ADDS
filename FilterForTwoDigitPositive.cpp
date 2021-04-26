@@ -2,7 +2,7 @@
 
 bool FilterForTwoDigitPositive::g(int x)
 {
-    if(x % 100 > 9)
+    if(x >= 100 || x < 10)
     {
         return false;
     }

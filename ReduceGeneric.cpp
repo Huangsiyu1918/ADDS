@@ -1,22 +1,16 @@
 #include "ReduceGeneric.h"
-
+int j = 0;
 int ReduceGeneric::reduce(std::vector<int> a)
 {
-    int j = 0;
-
-    if(a.size() > 0)
+    if(a.size() == 1)
     {
-        if(a.size() == 1)
-        {
-            return a[0];
-        }
-
-        j = binaryOperator(a[0],a[1]);
-        a.erase(a.begin());
-
-        j = binaryOperator(j,reduce(a));
-
+        return a[0];
     }
+
+    int temp = a[0];
+    a.erase(a.begin());
+
+    j = binaryOperator(temp,reduce(a));
 
     return j;
 }
