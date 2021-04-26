@@ -22,9 +22,9 @@ int main()
     std::vector<int> L;
 
     string temps = "";
-    for (int i = 0; i <= s.length(); i++)
+    for (int i = 0; i <= (int)s.length(); i++)
     {
-        if(i == s.length() || s[i] == ','){
+        if(i == (int)s.length() || s[i] == ','){
             L.push_back(stoi(temps));
             temps = "";
         }
