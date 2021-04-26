@@ -1,4 +1,4 @@
-#include " MapTriple.h"
+#include "MapTriple.h"
 
 int MapTriple::f(int x)
 {
