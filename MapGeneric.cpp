@@ -28,7 +28,7 @@ std::vector<int> MapGeneric::map(std::vector<int> a)
         a.erase(a.begin());
         
         std::vector<int> res = map(a);
-        for (int i = 0; i < res.size(); i++)
+        for (int i = 0; i < (int)res.size(); i++)
         {
             v.push_back(res[i]);
         }

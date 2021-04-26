@@ -39,7 +39,7 @@ std::vector<int> FilterGeneric::filter(std::vector<int> a)
 
         std::vector<int> res = filter(a);
 
-        for(int i = 0; i < res.size(); i++)
+        for(int i = 0; i < (int)res.size(); i++)
         {
             v.push_back(res[i]);
         }

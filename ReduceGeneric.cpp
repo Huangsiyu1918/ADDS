@@ -2,7 +2,7 @@
 
 int ReduceGeneric::reduce(std::vector<int> a)
 {
-    int j;
+    int j = 0;
 
     if(a.size() > 0)
     {
