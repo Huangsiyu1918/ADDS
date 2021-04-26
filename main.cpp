@@ -1,39 +1,101 @@
+#include "MapGeneric.h"
+#include "MapAbsoluteValue.h"
+#include "MapSquare.h"
+#include "FilterForTwoDigitPositive.h"
+#include "FilterNonPositive.h"
+#include " MapTriple.h"
+#include "FilterGeneric.h"
+#include "FilterOdd.h"
+#include "ReduceGeneric.h"
+#include "ReduceMinimum.h"
+#include "ReduceGCD.h"
+#include <string>
 #include <iostream>
-#include "Tournament.h"
-using namespace std;
 
+using namespace std;
 int main()
 {
-    Player* F = new FistfullODollars();
-    Player* R = new RandomComputer();
-    Player* A = new Avalanche();
-    Player* B = new Bureaucrat();
-    Player* T = new Toolbox();
-    Player* C = new Crescendo();
-    Player* P = new PaperDoll();
-    Player* F2 = new FistfullODollars();
+    string s; 
 
-    F->id = 1;
-    R->id = 2; //s //f
-    A->id = 3;
-    B->id = 4; //s
-    T->id = 5; //s //f
-    C->id = 6;
-    P->id = 7; //s
-    F2->id = 8;
+    getline(std::cin,s);
 
-    std::array<Player*,8> arr;
+    std::vector<int> L;
 
-    arr[0] = F;
-    arr[1] = R;
-    arr[2] = A;
-    arr[3] = B;
-    arr[4] = T;
-    arr[5] = C;
-    arr[6] = P;
-    arr[7] = F2;
+    string temps = "";
+    for (int i = 0; i <= s.length(); i++)
+    {
+        if(i == s.length() || s[i] == ','){
+            L.push_back(stoi(temps));
+            temps = "";
+        }
+        else if(s[i] == ' ') continue;
+        else temps+=s[i];
+    }
 
-    Tournament* t = new Tournament();
-    cout << t->run(arr)->id << endl;
+    // for (int i = 0; i < L.size(); i++)
+    // {
+    //     cout << L[i];
+    // }
+    
 
+
+    // v.push_back(12);
+    // v.push_back(18);
+    // v.push_back(3);
+    // v.push_back(4);
+    // v.push_back(5);
+    // v.push_back(0);
+    
+
+     MapGeneric* M1 = new(MapAbsoluteValue);
+     L = M1->map(L);
+
+     MapGeneric* M2 = new(MapTriple);
+     L = M2->map(L);
+
+     FilterGeneric* F1 = new(FilterForTwoDigitPositive);
+     L = F1->filter(L);
+
+     FilterGeneric* F2 = new(FilterOdd);
+     L = F2->filter(L);
+
+     ReduceGeneric* R1 = new(ReduceMinimum);
+     ReduceGeneric* R2 = new(ReduceGCD);
+
+     int Min, GCD;
+     Min = R1->reduce(L);
+     GCD = R2->reduce(L);
+
+     cout << Min << " " << GCD << endl;
+
+
+
+
+    // for(int i = 0; i < v.size(); i++)
+    // {
+    //     std::cout << v[i] << " ";
+    // }
+
+    // FilterGeneric* F = new(FilterOdd);
+
+    // v = F->filter(v);
+
+    //   for(int i = 0; i < v.size(); i++)
+    // {
+    //     std::cout << v[i] << " ";
+    // }
+
+    // ReduceGeneric* R = new(ReduceMinimum);
+
+    // int i = R->reduce(v);
+
+    // std::cout << i; 
+    
+    // ReduceGeneric* R = new(ReduceGCD);
+
+    // int i = R->reduce(v);
+
+    // std::cout << i;
+
+    
 }
