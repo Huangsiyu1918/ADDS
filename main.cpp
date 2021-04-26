@@ -3,7 +3,7 @@
 #include "MapSquare.h"
 #include "FilterForTwoDigitPositive.h"
 #include "FilterNonPositive.h"
-#include " MapTriple.h"
+#include "MapTriple.h"
 #include "FilterGeneric.h"
 #include "FilterOdd.h"
 #include "ReduceGeneric.h"
