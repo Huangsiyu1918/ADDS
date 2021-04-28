@@ -26,6 +26,6 @@ int main()
     Individual* human1Pro = execute(human1, M1, k1);
     Individual* human2Pro = execute(human2, M2, k2);
 
-    cout << human1Pro->getString() << " " << human2Pro->getString() << human2Pro->getMaxOnes() << endl;
+    cout << human1Pro->getString() << " " << human2Pro->getString() << " " << human2Pro->getMaxOnes() << endl;
 
 }
