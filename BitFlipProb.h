@@ -10,7 +10,7 @@ class BitFlipProb : public Mutator
 
     public:
     Individual* mutate(Individual*, int k);
-    BitFlipProb();
+    BitFlipProb(double);
     double randomProb();
 };
 #endif

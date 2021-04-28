@@ -1,8 +1,8 @@
 #include "BitFlipProb.h"
 
-BitFlipProb::BitFlipProb()
+BitFlipProb::BitFlipProb(double i)
 {
-    p = 0;
+    p = i;
 }
 
 double BitFlipProb::randomProb()

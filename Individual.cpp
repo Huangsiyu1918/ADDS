@@ -21,7 +21,7 @@ std::string Individual::getString()
 
 int Individual::getBit(int pos)
 {
-    if (pos > binaryString.length()) 
+    if (pos > (int)binaryString.length()) 
     {
         return -1;
     }
@@ -42,10 +42,10 @@ void Individual::flipBit(int pos)
 
 int Individual::getMaxOnes()
 {
-    int max, current_max = 0;
+    int max = 0; int current_max = 0;
     std::queue<char> myqueue;
 
-    for (int i = 0; i < binaryString.length(); i++)
+    for (int i = 0; i < (int)binaryString.length(); i++)
     {
         myqueue.push(binaryString[i]);
     }
