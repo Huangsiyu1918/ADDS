@@ -7,6 +7,7 @@ class Individual
 {
     protected:
     std::string binaryString;
+    int max;
 
     public:
     std::string getString();

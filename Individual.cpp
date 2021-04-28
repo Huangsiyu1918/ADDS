@@ -1,5 +1,4 @@
 #include "Individual.h"
-#include "queue"
 
 Individual::Individual(int len)
 {
@@ -43,46 +42,25 @@ void Individual::flipBit(int pos)
 int Individual::getMaxOnes()
 {
     int max = 0; int current_max = 0;
-    std::queue<char> myqueue;
 
-    for (int i = 0; i < (int)binaryString.length(); i++)
+    for(int i = 0; (int)i < binaryString.length(); i++)
     {
-        myqueue.push(binaryString[i]);
-    }
-
-    bool flag;
-
-    if (myqueue.back() == '0') flag = true;
-    else flag = false;
-
-    while(myqueue.size() != 0)
-    {
-        if(myqueue.front() == '1')
+        if (binaryString[i] == '1')
         {
             current_max++;
-            myqueue.pop();
         }
-        else if(myqueue.front() == '0')
+        else
         {
-            if(current_max > max)
-            {
-                max = current_max;
-            }
             current_max = 0;
-            myqueue.pop();
         }
-    }
 
-
-    if (flag == false)
-    {
-        return current_max;
+        if (max < current_max)
+        {
+            max = current_max;
+        }
+        
     }
-    else
-    {
-        return max;
-    }
-    
+     return max;
 }
 
 int Individual::getLength()
