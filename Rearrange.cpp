@@ -10,12 +10,12 @@ Individual *Rearrange::mutate(Individual *obj, int k)
     if (k > len)
     {
         int pos = (len % k);
-        str1 = str.substr(pos, len - pos + 1);
+        str1 = str.substr(pos - 1, len - pos + 1);
         str2 = str.substr(0, pos - 1);
     }
     else
     {
-        str1 = str.substr(k, len - k + 1);
+        str1 = str.substr(k - 1, len - k + 1);
         str2 = str.substr(0, k - 1);
     }
 
