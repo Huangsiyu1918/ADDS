@@ -50,6 +50,11 @@ int Individual::getMaxOnes()
         myqueue.push(binaryString[i]);
     }
 
+    bool flag;
+
+    if (myqueue.back() == '0') flag = true;
+    else flag = false;
+
     while(myqueue.size() != 0)
     {
         if(myqueue.front() == '1')
@@ -67,7 +72,17 @@ int Individual::getMaxOnes()
             myqueue.pop();
         }
     }
-    return max;
+
+
+    if (flag == false)
+    {
+        return current_max;
+    }
+    else
+    {
+        return max;
+    }
+    
 }
 
 int Individual::getLength()
