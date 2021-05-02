@@ -60,7 +60,7 @@ int Individual::getMaxOnes()
         }
         
     }
-     return max;
+     return max; 
 }
 
 int Individual::getLength()

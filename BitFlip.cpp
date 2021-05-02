@@ -4,29 +4,28 @@ Individual* BitFlip::mutate(Individual* obj, int k)
 {
     int len = obj->getLength();
     std::string str = obj->getString();
-    if (k > len)
+    if (k % len == 0)
     {
-        if (str[(len % k) - 1] == '1')
+        if(str[len - 1] == '0')
         {
-            str[(len % k) - 1 ] = '0';
+            str[len-1] = '1';
         }
         else
         {
-            str[(len % k) - 1 ] = '1';
+            str[len-1] = '0';
         }
         
     }
     else
     {
-        if (str[k-1] == '0')
+        if(str[(k % len) - 1] == '0')
         {
-            str[k-1] = '1';
+            str[(k % len) - 1] = '1';
         }
         else
         {
-            str[k-1] = '0';
+            str[(k % len) - 1] = '0';
         }
-        
     }
     Individual* offspring = new Individual(str);
 
