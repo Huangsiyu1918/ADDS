@@ -9,7 +9,7 @@ Individual *Rearrange::mutate(Individual *obj, int k)
     std::string str2;
     if (k > len)
     {
-        int pos = (len % k);
+        int pos = (k % len);
         str1 = str.substr(pos - 1, len - pos + 1);
         str2 = str.substr(0, pos - 1);
     }
