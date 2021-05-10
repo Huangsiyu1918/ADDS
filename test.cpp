@@ -1,6 +1,6 @@
-// #include <iostream>
-// #include <vector>
-// using namespace std;
+#include <iostream>
+#include <vector>
+using namespace std;
 // void BubbleSort1(vector<int> &R ,int n)
 // {
 // 	int i,j;  bool exchange;  int temp;
@@ -59,36 +59,45 @@
 //     return list;
 // }
 
-// int search_helper(std::vector<int>& v, const int& x, int l, int r)
-// {
-//     if(l > r) return -1;
+int search_helper(std::vector<int>& v, const int& x, int l, int r)
+{
+    if(l > r) return -1;
 
-//     int m = (l + r) / 2;
+    int m = (l + r) / 2;
     
     
-//     if (v[m] == x)
-//         return m;
-//     else if(x > v[m])
-//         return search_helper(v, x, m + 1, r);
-//     else 
-//         return search_helper(v, x,l, m -1);      
+    if (v[m] == x)
+        return m;
+    else if(x > v[m])
+        return search_helper(v, x, m + 1, r);
+    else 
+        return search_helper(v, x,l, m -1);      
     
-// }
+}
 
-// int main()
-// {
-//     vector<int> v;
-//     v.push_back(1);
-//     v.push_back(2);
-//     v.push_back(9);
-//     v.push_back(11);
 
-//     //BubbleSort1(v, 4);
-//     //v = sort(v,0,3);
+bool search(std::vector<int> v, int x)
+{
+    if (search_helper(v, x, 0, v.size() -1) == -1) return false;
+    else return true;
+}
 
-//     cout << search_helper(v, 11, 0, 3);
-//     // for(int i = 0; i < 4; i++)
-//     // {
-//     //     cout << v[i] << " ";
-//     // }
-// }
+int main()
+{
+    vector<int> v;
+    v.push_back(0);
+    v.push_back(2);
+    v.push_back(9);
+    v.push_back(11);
+
+    //BubbleSort1(v, 4);
+    //v = sort(v,0,3);
+
+    int k = search(v, 1);
+    if(k == false)std::cout << "false" << " ";
+    else std::cout << "true" << " ";
+    // for(int i = 0; i < 4; i++)
+    // {
+    //     cout << v[i] << " ";
+    // }
+}

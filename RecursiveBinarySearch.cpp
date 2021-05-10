@@ -17,5 +17,6 @@ int search_helper(std::vector<int>& v, const int& x, int l, int r)
 
 bool RecursiveBinarySearch::search(std::vector<int> v, int x)
 {
-    return search_helper(v, x, v[0], v[v.size() - 1]);
+    if (search_helper(v, x, 0, v.size() -1) == -1) return false;
+    else return true;
 }

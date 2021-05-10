@@ -34,13 +34,13 @@ int main()
     list.push_back(i);
     }
 
-    Sort* S = new QuickSort();
-    S->sort(list);
+    // QuickSort q;
+    // q.sort(list);
 
     RecursiveBinarySearch* B = new RecursiveBinarySearch();
     int k = B->search (list, 1);
-    if(k == 1) std::cout << "true" << " ";
-    else std::cout << "false" << " ";
+    if(k == false)std::cout << "false" << " ";
+    else std::cout << "true" << " ";
 
     
     for (int i = 0; i < list.size(); i++)
