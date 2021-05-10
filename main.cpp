@@ -34,8 +34,8 @@ int main()
     list.push_back(i);
     }
 
-    // QuickSort q;
-    // q.sort(list);
+    QuickSort q;
+    q.sort(list);
 
     RecursiveBinarySearch* B = new RecursiveBinarySearch();
     int k = B->search (list, 1);
