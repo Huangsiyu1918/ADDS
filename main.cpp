@@ -1,31 +1,52 @@
-#include "Individual.h"
-#include "BitFlip.h"
-#include "BitFlipProb.h"
-#include "Rearrange.h"
-
+#include "Sort.h"
+#include "BubbleSort.h"
+#include "QuickSort.h"
+#include "RecursiveBinarySearch.h"
 #include <iostream>
-using namespace std;
-
-Individual* execute(Individual* indPtr, Mutator* mPtr, int k)
-{
-    return mPtr->mutate(indPtr, k);
-}
+#include <vector>
+#include <string>
+#include <sstream>
 
 int main()
 {
-    string str1, str2;
-    int k1, k2;
-    cin >> str1 >> k1 >> str2 >> k2;
+    std::string str;
+    std::vector<int> list;
 
-    Individual* human1 = new Individual(str1);
-    Individual* human2 = new Individual(str2);
+    std::getline (std::cin,str);
 
-    Mutator* M1 = new BitFlip();
-    Mutator* M2 = new Rearrange();
+
+    // int i = 0;
+    // while(str[i] != '\n')
+    // {
+    //     std::string str2 = "";
+    //     while(str[i] != ' ' && str[i] != '-')
+    //     {   
+    //         str2 += str[i++];
+    //     }
+    //     i++;
+    //     int num = std::stoi(str2);
+    //     list.push_back(num);
+    // }
+
+    std::stringstream ss(str);
+
+    for(int i = 0; ss >> i; ) {
+    list.push_back(i);
+    }
+
+    Sort* S = new QuickSort();
+    S->sort(list);
+
+    RecursiveBinarySearch* B = new RecursiveBinarySearch();
+    int k = B->search (list, 1);
+    if(k == 1) std::cout << "true" << " ";
+    else std::cout << "false" << " ";
+
     
-    Individual* human1Pro = execute(human1, M1, k1);
-    Individual* human2Pro = execute(human2, M2, k2);
+    for (int i = 0; i < list.size(); i++)
+    {
+        std::cout << list[i] << " ";
+    }
 
-    cout << human1Pro->getString() << " " << human2Pro->getString() << " " << human2Pro->getMaxOnes() << endl;
-
+    
 }
