@@ -8,19 +8,19 @@ int main()
 {
     //cout << "test" << endl;
     int arr[100];
-    int command[100];
+    //int command[100];
 
     std::string str;
     std::getline (std::cin,str);
 
-    bool check = false;
+    //bool check = false;
     int n;
     
     string str2 = "";
     string str3 = "";  
 
 
-    for (int i = 0; i <str.length(); i++)
+    for (int i = 0; i <(int)str.length(); i++)
     {
         if(str[i] == ' ' && str2 != "")
         {
@@ -66,7 +66,7 @@ int main()
     else if(str3 == "AP")
     {
         L->addAtPosition(arr[n-2],arr[n-1]);
-         L->printItems();
+        L->printItems();
     }   
     else if(str3 == "S")
     {

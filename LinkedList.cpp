@@ -37,7 +37,7 @@ void LinkedList::addAtPosition(int position, int newItem)
     Node* p = new Node();
     p->setData(newItem);
 
-    int length = 0;
+    int length = -1;
     while(q != nullptr)
     {
         q = q->getNode();
