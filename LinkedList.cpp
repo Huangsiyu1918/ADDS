@@ -38,12 +38,11 @@ void LinkedList::addAtPosition(int position, int newItem)
     p->setData(newItem);
 
     int length = 0;
-    while(q->getNode() != nullptr)
+    while(q != nullptr)
     {
         q = q->getNode();
         length++;
     }
-
 
     if (position > length) addEnd(newItem);
     else if(position < 1) addFront(newItem);
@@ -112,18 +111,28 @@ void LinkedList::deletePosition(int position)
      Node* q = head;
      Node* p = head;
     int length = 0;
-    while(q->getNode() != nullptr)
+    while(q!= nullptr)
     {
         q = q->getNode();
         length++;
     }
 
-    if (position > length) std::cout << "outside range";
-    else if (position < 1) std::cout << "outside range";
+    if (position > length)
+    { 
+        std::cout << "outside range";
+    }
+    else if (position < 1)
+    {
+         std::cout << "outside range";
+    }
+    else if (position == 0) 
+    {
+        return;
+    }
     else
     {
         int n = 1;
-        while(n+1 != position)
+        while(n != position)
         {
             p = p->getNode();
             n++;
@@ -139,12 +148,15 @@ int LinkedList::getItem(int position)
 {
     Node* q = head;
     Node* p = head;
-    int length = 0;
-    while(q->getNode() != nullptr)
+    int length = -1;
+    while(q != nullptr)
     {
         q = q->getNode();
         length++;
     }
+
+    std:: cout <<"L: " << length << std::endl;
+    std:: cout << "p: " << position << std::endl;
 
     if (position > length) 
     {std::cout << std::numeric_limits < int >::max() << " ";
@@ -153,14 +165,19 @@ int LinkedList::getItem(int position)
     else if (position < 1){
     std::cout << std::numeric_limits < int >::max() << " ";
     return std::numeric_limits < int >::max();}
+    else if (position == 0)
+    {
+        return 0;
+    }
     else
     {
-        int n = -1;
+        int n = 0;
         while(n != position)
         {
             p = p->getNode();
             n++;
         }
+        std::cout << "hello ";
         std::cout << p->getData() << " ";
         return p->getData();
     }
@@ -184,7 +201,7 @@ LinkedList::LinkedList(int arr[], int n)
 
     for (int i = 0; i < n; i++)
     {
-        addFront(arr[i]);
+        addEnd(arr[i]);
     }
     
 }
