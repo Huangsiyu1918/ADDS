@@ -117,9 +117,6 @@ void LinkedList::deletePosition(int position)
         length++;
     }
 
-    std:: cout <<"L: " << length << std::endl;
-    std:: cout << "p: " << position << std::endl;
-
     if (position > length)
     { 
         std::cout << "outside range";
@@ -158,9 +155,6 @@ int LinkedList::getItem(int position)
         length++;
     }
 
-    std:: cout <<"L: " << length << std::endl;
-    std:: cout << "p: " << position << std::endl;
-
     if (position > length) 
     {std::cout << std::numeric_limits < int >::max() << " ";
     return std::numeric_limits < int >::max();}
@@ -180,7 +174,6 @@ int LinkedList::getItem(int position)
             p = p->getNode();
             n++;
         }
-        std::cout << "hello ";
         std::cout << p->getData() << " ";
         return p->getData();
     }
