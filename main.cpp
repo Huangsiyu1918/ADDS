@@ -6,7 +6,7 @@
 using namespace std;
 int main()
 {
-    cout << "test" << endl;
+    // cout << "test" << endl;
     int arr[100];
     int command[100];
 
