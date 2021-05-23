@@ -55,13 +55,11 @@ int main()
     if(str3 == "AF")
     {
         L->addFront(arr[n-2]);
-        L->addFront(arr[n-1]);
         L->printItems();
     }
     else if(str3 == "AE")
     {
         L->addEnd(arr[n-2]);
-        L->addEnd(arr[n-1]);
          L->printItems();
     }
     else if(str3 == "AP")
@@ -72,18 +70,15 @@ int main()
     else if(str3 == "S")
     {
         L->search(arr[n-2]);
-        L->search(arr[n-1]);
          L->printItems();
     }       
     else if(str3 == "DE")
     {
         L->deleteFront();
-        L->deleteFront();
          L->printItems();
     }    
     else if(str3 == "DE")
     {
-        L->deleteEnd();
         L->deleteEnd();
          L->printItems();
     }   
@@ -91,13 +86,11 @@ int main()
     else if(str3 == "DP")
     {
         L->deletePosition(arr[n-2]);
-        L->deletePosition(arr[n-1]);
          L->printItems();
     }
     else if(str3 == "GI")
     {
         L->getItem(arr[n-2]);
-        L->getItem(arr[n-1]);
         L->printItems();
     }        
     

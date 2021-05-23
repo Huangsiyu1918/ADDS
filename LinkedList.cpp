@@ -110,12 +110,15 @@ void LinkedList::deletePosition(int position)
 {
      Node* q = head;
      Node* p = head;
-    int length = 0;
+    int length = -1;
     while(q!= nullptr)
     {
         q = q->getNode();
         length++;
     }
+
+    std:: cout <<"L: " << length << std::endl;
+    std:: cout << "p: " << position << std::endl;
 
     if (position > length)
     { 
@@ -193,6 +196,7 @@ void LinkedList::printItems()
         std:: cout << p->getData() << " ";
         p = p->getNode();
     }
+    std::cout << std::endl;
 }
 
 LinkedList::LinkedList(int arr[], int n)
