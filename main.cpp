@@ -10,11 +10,11 @@ int main()
     int arr[100];
     //int command[100];
 
-    std::string str;
-    std::getline (std::cin,str);
+    string str;
+    getline (cin,str);
 
     //bool check = false;
-    int n;
+    int n = 0;
     
     string str2 = "";
     string str3 = "";  
@@ -43,58 +43,50 @@ int main()
     }
     arr[n++] = stoi(str2);
 
-
     LinkedList* L = new LinkedList(arr, n-2);
 
     // for ( int i = 0; i <n; i++)
     // {
     //     cout << arr[i] << " ";
     // }
-    // L->printItems();
+    //  L->printItems();
     // cout << str3 << endl;
 
     if(str3 == "AF")
     {
         L->addFront(arr[n-2]);
-        L->printItems();
     }
     else if(str3 == "AE")
     {
         L->addEnd(arr[n-2]);
-         L->printItems();
     }
     else if(str3 == "AP")
     {
         L->addAtPosition(arr[n-2],arr[n-1]);
-        L->printItems();
     }   
     else if(str3 == "S")
     {
         L->search(arr[n-2]);
-         L->printItems();
     }       
-    else if(str3 == "DE")
+    else if(str3 == "DF")
     {
         L->deleteFront();
-         L->printItems();
     }    
     else if(str3 == "DE")
     {
         L->deleteEnd();
-         L->printItems();
     }   
     
     else if(str3 == "DP")
     {
         L->deletePosition(arr[n-2]);
-         L->printItems();
     }
     else if(str3 == "GI")
     {
         L->getItem(arr[n-2]);
-        L->printItems();
     }        
     
+    L->printItems();
 
     
     

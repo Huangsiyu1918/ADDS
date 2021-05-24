@@ -21,7 +21,7 @@ void LinkedList::addEnd(int newItem)
     Node* p = new Node();
     p->setData(newItem);
 
-    while(q->getNode() != 0)
+    while(q->getNode() != nullptr)
     {
         q = q->getNode();
     }
@@ -182,10 +182,11 @@ int LinkedList::getItem(int position)
 void LinkedList::printItems()
 {
     Node* p = head->getNode();
-    if (head->getNode() == 0) return;
+    if (head->getNode() == nullptr) return;
 
     while(p != nullptr)
     {
+        // std:: cout << p->getData() << " ";
         std:: cout << p->getData() << " ";
         p = p->getNode();
     }
@@ -194,7 +195,7 @@ void LinkedList::printItems()
 
 LinkedList::LinkedList(int arr[], int n)
 {
-    head = new Node();
+        head = new Node();
 
     for (int i = 0; i < n; i++)
     {
