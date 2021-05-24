@@ -11,184 +11,138 @@ void LinkedList::addFront(int newItem)
 {
     Node* p = new Node();
     p->setData(newItem);
-    p->setNode(head->getNode());
-    head->setNode(p);
+    p->setNode(head);
+    head = p;
 }
 
 void LinkedList::addEnd(int newItem)
 {
-    Node* q = head;
     Node* p = new Node();
     p->setData(newItem);
+    if(head == nullptr){
+        head = p;
+        return;
+    }
+    Node* q = head;
 
     while(q->getNode() != nullptr)
     {
         q = q->getNode();
     }
 
-    p->setNode(q->getNode());
     q->setNode(p);
 }
 
 void LinkedList::addAtPosition(int position, int newItem)
 {
     Node* q = head;
-    Node* h = head;
     Node* p = new Node();
     p->setData(newItem);
 
-    int length = -1;
-    while(q != nullptr)
-    {
-        q = q->getNode();
-        length++;
+    if(position <= 1){
+        addFront(newItem);
+        return;
     }
 
-    if (position > length) addEnd(newItem);
-    else if(position < 1) addFront(newItem);
-    else
-    {
-        int n = 0;
-        while (n+1 != position)
-        {
-            h = h->getNode();
-            n++;
+    for(int i = 0; i < position-2; i++){
+        q = q->getNode();
+        if(q == nullptr){
+            addEnd(newItem);
+            return;
         }
-        p->setNode(h->getNode());
-        h->setNode(p);
     }
+
+
+    p->setNode(q->getNode());
+    q->setNode(p);
 }
 
 int LinkedList::search(int item)
 {
-     Node* q = head;
-     int n = 0;
+    Node* q = head;
+    int n = 0;
 
-     while(q->getNode() != nullptr)
-     {
-         n++;
-         if (q->getData() == item)
-         {
-             std::cout << n << " ";
-             return n;
-         }
-     }
-     std:: cout << 0 << " ";
-     return 0;
-
+    while(q != nullptr && q->getData() != item)
+    {
+        q = q->getNode();
+        if(q == nullptr){
+            std::cout << 0 << " ";
+            return 0;
+        }
+        n++;
+    }
+    std::cout << n+1 << " ";
+    return n+1;
 }
 
 void LinkedList::deleteFront()
 {
-    Node* p = head->getNode();
-    Node* q = head->getNode();
-    head->setNode(q->getNode());
+    Node* p = head;
+    head = head->getNode();
     delete p;
 }
 
 void LinkedList::deleteEnd()
 {
     Node* q = head;
-    Node* p = q;
-    while(q->getNode() != nullptr)
+    while(q->getNode()->getNode() != nullptr)
     {
-        p = q;
         q = q->getNode();
     }
 
-    p->setNode(0);
-    delete q;
-
-
-
-
-
-
+    Node* p = q->getNode();
+    q->setNode(nullptr);
+    delete(p);
 }
 
 void LinkedList::deletePosition(int position)
 {
-     Node* q = head;
-     Node* p = head;
-    int length = -1;
-    while(q!= nullptr)
-    {
-        q = q->getNode();
-        length++;
-    }
-
-    if (position > length)
-    { 
-        std::cout << "outside range";
-    }
-    else if (position < 1)
-    {
-         std::cout << "outside range";
-    }
-    else if (position == 0) 
-    {
+    if(position <= 0){
+        std::cout << "outside range" << " ";
+        return;
+    }else if(position == 1){
+        deleteFront();
         return;
     }
-    else
-    {
-        int n = 1;
-        while(n != position)
-        {
-            p = p->getNode();
-            n++;
+    Node* q = head;
+    for(int i = 0; i < position-2; i++){
+        q = q->getNode();
+        if(q->getNode() == nullptr){
+            std::cout << "outside range" << " ";
+            return;
         }
-
-        Node* h = p->getNode();
-        p->setNode(h->getNode());
-        delete h;
     }
+
+    Node* p = q->getNode();
+    q->setNode(p->getNode());
+    delete(p);
 }
 
 int LinkedList::getItem(int position)
 {
+    if (position < 1){
+        std::cout << std::numeric_limits < int >::max() << " ";
+        return std::numeric_limits < int >::max();
+    }
+
     Node* q = head;
-    Node* p = head;
-    int length = -1;
-    while(q != nullptr)
-    {
+    for(int i = 0; i < position-1; i++){
         q = q->getNode();
-        length++;
-    }
-
-    if (position > length) 
-    {std::cout << std::numeric_limits < int >::max() << " ";
-    return std::numeric_limits < int >::max();}
-
-    else if (position < 1){
-    std::cout << std::numeric_limits < int >::max() << " ";
-    return std::numeric_limits < int >::max();}
-    else if (position == 0)
-    {
-        return 0;
-    }
-    else
-    {
-        int n = 0;
-        while(n != position)
-        {
-            p = p->getNode();
-            n++;
+        if(q == nullptr){
+            std::cout << std::numeric_limits < int >::max() << " ";
+            return std::numeric_limits < int >::max();
         }
-        std::cout << p->getData() << " ";
-        return p->getData();
     }
+
+    std::cout << q->getData() << " ";
+    return q->getData();
 }
 
-void LinkedList::printItems()
-{
-    Node* p = head->getNode();
-    if (head->getNode() == nullptr) return;
-
-    while(p != nullptr)
-    {
-        // std:: cout << p->getData() << " ";
-        std:: cout << p->getData() << " ";
-        p = p->getNode();
+void LinkedList::printItems(){
+    Node* q = head;
+    while(q != nullptr){
+        std::cout << q->getData() << " ";
+        q = q->getNode();
     }
     std::cout << std::endl;
 }
@@ -201,7 +155,7 @@ LinkedList::LinkedList(int arr[], int n)
     {
         addEnd(arr[i]);
     }
-    
+    head = head->getNode();
 }
 
 LinkedList::~LinkedList()
