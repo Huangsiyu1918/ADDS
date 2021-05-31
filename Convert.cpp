@@ -190,8 +190,8 @@ void Convert::Polish(std::string& str)
 //         }
 //     } 
 
-    	for(int i=0; i<j; ++i){
-		    std::cout << B[i] << " ";
-	    }
-        std::cout << "=" << " " << ans;
-}
+//     	for(int i=0; i<j; ++i){
+// 		    std::cout << B[i] << " ";
+// 	    }
+//         std::cout << "=" << " " << ans;
+// }
