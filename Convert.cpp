@@ -25,6 +25,11 @@ void Convert::Polish(std::string& str)
             }
             else
             {
+                if(str[0] >= '0' && str[0] <= '9')
+                {
+                    std::cout << temp << " = " << temp << std::endl;
+                    return;
+                }
                 op.push(temp);
                 if(isdigit(str[i+1]))
                 {
