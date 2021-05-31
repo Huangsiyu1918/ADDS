@@ -82,7 +82,7 @@ void Convert::Polish(std::string& str)
             }
             else
             {
-                resStr = "( " + resStr + " )" + "*" + j;
+                resStr = "(" + resStr + ")" + " * " + j;
             }
             res *= i;
         }
@@ -95,7 +95,7 @@ void Convert::Polish(std::string& str)
             }
             else
             {
-                resStr = "( " + resStr + " )" + "/" + j;
+                resStr = "(" + resStr + ")" + " / " + j;
             }
             res /= i;
         }
