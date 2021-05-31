@@ -70,7 +70,7 @@ void Convert::Polish(std::string& str)
         }
         else if(a == "-")
         {
-            resStr += " + " + j;
+            resStr += " - " + j;
             res -= i;
             check = false;
         }
